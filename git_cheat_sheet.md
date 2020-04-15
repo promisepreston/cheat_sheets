@@ -141,4 +141,3 @@ git push `alias` --tags| Upload all local tags to remote repository. Tags arenâ€
 2. [GitHub Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 3. [BitBucket Git Cheat Sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
 4. [GitLab Git Cheat Sheet](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)
-5.
