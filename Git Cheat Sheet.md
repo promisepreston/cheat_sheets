@@ -1,10 +1,11 @@
-﻿# Git Cheat Sheet
+# Git Cheat Sheet
 
 Git is the open source distributed version control system that facilitates remote repositories activities on your local machine. This cheat sheet summarizes the commonly used Git command line instructions for quick reference. It saves you time when you just can't remember what a command is or don't want to use git help in the command line.
 
 ## Glossary
 **git**: An open source, distributed version-control system.
-**Branch**: A lightweight movable pointer to a commitclone: a local version of a repository, including all commits and branches.
+**Branch**: A lightweight movable pointer to a commit.
+**Clone**: A local version of a repository, including all commits and branches.
 **Commit**: A Git object, a snapshot of your entire repository compressed into a SHA.
 **Fork**: A copy of a repository on GitHub owned by a different user.
 **HEAD**: Representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using git checkout.
@@ -31,7 +32,7 @@ Command | Description | Example(s)
 git branch | List all local branches | git branch
 git branch -a | List all local branches and remote branches as well  | git branch -a
 git branch `branch` | List all local branches | git branch `develop`
-git branch -d `branch` | Delete a local branch | git branch -d `develop` 
+git branch -d `branch` | Delete a local branch | git branch -d `develop`
 git branch -m `new name` | Rename current branch | git branch -m    `stable`
 git checkout `branch` | Switch to an existing branch | git checkout `develop`
 git checkout -b `branch` | Create a local branch and switch to it | git checkout -b `develop`
@@ -62,7 +63,7 @@ Command | Description | Example(s)
 git diff | Show all unstaged local file changes in the working tree | git diff
 git diff HEAD | Show difference between the working directory and the last commit | git diff HEAD
 git diff --cached | Show difference between staged changes and last commit | git diff --cached
-git diff `branch A`...`branch B` | Show difference between two branches | git diff `develop`...`stable` 
+git diff `branch A`...`branch B` | Show difference between two branches | git diff `develop`...`stable`
 git diff `file` | Show changes made to a file | git diff `index.rb`
 
 ## Log Commands
@@ -106,7 +107,7 @@ Command | Description | Example(s)
 ------------ | ------------- | -------------
 git remote -v |
 git remote add `alias` `url` | Add remote branch and its mapping to local | git remote add `origin` `https://github.com/promisepreston/example.git`
-git remote remove `alias` | Remove remote branch and its mapping to local | git remote remove `origin` 
+git remote remove `alias` | Remove remote branch and its mapping to local | git remote remove `origin`
 git remote set-url `alias` | Edit remote branch and its mapping to local | git remote set-url origin
 git remote show `alias` | Show remote branches and their mapping to local | git remote show `origin`
 
@@ -120,7 +121,7 @@ git reset --hard `commit` | Reset staging area and working directory to the spec
 
 ## Stash Commands
 Command | Description | Example(s)
------------- | ------------- | ------------- 
+------------ | ------------- | -------------
 git stash | Save modified and staged changes temporarily | git stash
 git stash drop | Discard a stash from top of stash stack | git stash drop
 git stash list | List stack-order of stashed file changes | git stash list
@@ -135,37 +136,9 @@ git tag -d `tag` | Delete a tag from a local repository | git tag -d `develop`
 git pull `alias` --tags | Download all remote tags to the current local branch | git pull `origin` -tags
 git push `alias` --tags| Upload all local tags to remote repository. Tags aren’t automatically pushed when you push a `branch` or use the `--all` flag | git push `origin` -tags
 
-
-
-
-# How to update/checkout a single file from remote origin master?
-
-**The scenario**:
-I make some changes in a single file locally and run git add, git commit and git push
-
-The file is pushed to the remote origin master repository
-
-I have another local repository that is deployed via Capistrano with the "remote_cache" method from that remote repository
-
-Now I don't want to deploy the whole application but just update/checkout that single file.
-
-**Answer**:
-It can be done in the deployed repository: 
-
-    git fetch
-
-The git fetch command will download all the recent changes, but it will not put it in your current checked out code (working area).
-
-    git checkout origin/master -- path/to/file
-
-Then the checkout command will update the working tree with the particular file from the downloaded changes (origin/master).
-
 ## Resources
 1. [GitHub Git Cheat Sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
 2. [GitHub Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 3. [BitBucket Git Cheat Sheet](https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet)
 4. [GitLab Git Cheat Sheet](https://about.gitlab.com/images/press/git-cheat-sheet.pdf)
-5. 
-
-
-
+5.
