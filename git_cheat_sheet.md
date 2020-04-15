@@ -44,9 +44,7 @@ Command | Description | Example(s)
 ------------ | ------------- | -------------
 git clean -f | Delete all untracked files | git clean -f
 git clean -n | Show all untracked files that would be removed from working directory | git clean -n
-git clean -df | Delete all untracked files and directories    
-git checkout -- | Undo local modifications to all files
-git reset HEAD myfile | Unstage a file
+git clean -df | Delete all untracked files and directories | git clean -df   
 
 ## Config Commands
 Command | Description | Example(s)

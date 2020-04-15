@@ -13,7 +13,7 @@ The cheat sheets are all written in [Markdown](https://en.wikipedia.org/wiki/Mar
 You can clone the cheat sheet(s) to your local machine or fork cheat sheet(s) to your remote repository. They can be used as guides that can be referenced when the need arises during your programming sessions.
 
 ## Contributing
-Contributions are welcome to CheatSheets to make it more industry standard
+CheatSheets is still an evolving project with a lot of work still required to make it outstanding. Contributions are welcome to CheatSheets in the form of error-correction, cheat sheet addition or any other form of contribution to make CheatSheets industry standard.
 
 ## Support
 If you found this project amazing, helpful or interesting, please take little time to **star** it.
