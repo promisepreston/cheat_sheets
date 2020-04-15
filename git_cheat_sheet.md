@@ -3,15 +3,15 @@
 Git is the open source distributed version control system that facilitates remote repositories activities on your local machine. This cheat sheet summarizes the commonly used Git command line instructions for quick reference. It saves you time when you just can't remember what a command is or don't want to use git help in the command line.
 
 ## Glossary
-**git**: An open source, distributed version-control system.
-**Branch**: A lightweight movable pointer to a commit.
-**Clone**: A local version of a repository, including all commits and branches.
-**Commit**: A Git object, a snapshot of your entire repository compressed into a SHA.
-**Fork**: A copy of a repository on GitHub owned by a different user.
-**HEAD**: Representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using git checkout.
-**Pull request**: A place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more.
-**Remote**: A common repository on that all team member use to exchange their changes.
-**.gitgnore file**: Sometimes it may be a good idea to exclude files from being tracked with Git. This is typically done in a special file named `.gitignore`.
+* **git**: An open source, distributed version-control system.
+* **Branch**: A lightweight movable pointer to a commit.
+* **Clone**: A local version of a repository, including all commits and branches.
+* **Commit**: A Git object, a snapshot of your entire repository compressed into a SHA.
+* **Fork**: A copy of a repository on GitHub owned by a different user.
+* **HEAD**: Representing your current working directory, the HEAD pointer can be moved to different branches, tags, or commits when using git checkout.
+* **Pull request**: A place to compare and discuss the differences introduced on a branch with reviews, comments, integrated tests, and more.
+* **Remote**: A common repository on that all team member use to exchange their changes.
+* **.gitgnore file**: Sometimes it may be a good idea to exclude files from being tracked with Git. This is typically done in a special file named `.gitignore`.
 
 ## Basic Commands
 Command | Description | Example(s)
