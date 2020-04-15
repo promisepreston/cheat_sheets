@@ -5,7 +5,7 @@ You're going to love CheatSheets!
 
 ## List of CheatSheets
 * Git Cheat Sheet
-More to come
+* More to come
 
 ## Getting Started
 The cheat sheets are all written in [Markdown](https://en.wikipedia.org/wiki/Markdown). Markdown is a way to style text on the web. You control the display of the document; formatting words as bold or italic, adding images, and creating lists are just a few of the things we can do with Markdown. Mostly, Markdown is just regular text with a few non-alphabetic characters thrown in, like `#` or `*`. You can learn more about Markdown in GitHub's Guide on [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
@@ -18,4 +18,4 @@ Contributions are welcome to CheatSheets to make it more industry standard
 ## Support
 If you found this project amazing, helpful or interesting, please take little time to **star** it.
 
-Thanks! heart heart heart.
+Thanks! ❤️ ❤️ ❤️
