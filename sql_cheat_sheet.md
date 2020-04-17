@@ -1,6 +1,10 @@
-﻿# SQL Cheat Sheet
+# SQL Cheat Sheet
 
 ## Glossary
+**SQL**: SQL is a standard language for accessing and manipulating databases. It stands for Structured Query Language.
+**RDBMS**: RDBMS stands for Relational Database Management System. It is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.
+**Table**: A table is a collection of related data entries and it consists of columns and rows. The data in RDBMS is stored in database objects called tables.
+**Semicolon**: A semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.
 **SQL Stored Procedures for SQL Server**: A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again. So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it. You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
 
     **Stored Procedure Syntax**
@@ -8,34 +12,34 @@
     AS
     sql_statement
     GO;
-    
+
     **Execute a Stored Procedure**
     EXEC procedure_name;
-    
 
-    **Stored Procedure Example** 
+
+    **Stored Procedure Example**
     The following SQL statement creates a stored procedure named "SelectAllCustomers" that selects all records from the "Customers" table:
-    
+
     CREATE PROCEDURE SelectAllCustomers
     AS
     SELECT * FROM Customers
     GO;
-    
+
     **Execute the Stored Procedure**
     EXEC SelectAllCustomers;
 
 
     **Stored Procedure With One Parameter**
     The following SQL statement creates a stored procedure that selects Customers from a particular City from the "Customers" table:
-    
+
     CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)
     AS
     SELECT * FROM Customers WHERE City = @City
     GO;
-    
+
     **Execute the Stored Procedure**
     EXEC SelectAllCustomers @City = 'London';
-    
+
 
     **Stored Procedure With Multiple Parameters**
     The following SQL statement creates a stored procedure that selects Customers from a particular City with a particular PostalCode from the "Customers" table:
@@ -44,7 +48,7 @@
     AS
     SELECT * FROM Customers WHERE City = @City AND PostalCode = @PostalCode
     GO;
-    
+
     **Execute the Stored Procedure**
     EXEC SelectAllCustomers @City = 'London', @PostalCode = 'WA1 1DP';
 
@@ -53,9 +57,9 @@
     **Single Line Comments(--)**
     --Select all:
     SELECT * FROM Customers;
-    
+
     SELECT * FROM Customers -- WHERE City='Berlin';
-    
+
 
     **Multi-line Comments (start with /* and end with */)**
     /*SELECT * FROM Customers;
@@ -74,8 +78,10 @@ REVOKE | Used to deny permission to users to access database objects.
 Command | Description | Example(s) | Illustration(s)
 ------------ | ------------- | ------------- | -------------
 ALTER | Adds, deletes, or modifies columns in a table, or changes the data type of a column in a table.
-CREATE | Creates a database, index, view, table, or procedure.
-DROP | Deletes a column, constraint, database, index, table, or view
+BACKUP DATABASE | Creates a back up of an existing database. | **For MS SQL Server**<br>BACKUP DATABASE databasename<br>TO DISK = 'filepath'; | **For MS SQL Server**<br>BACKUP DATABASE testDB<br>TO DISK = 'D:\backups\testDB.bak';
+CREATE | Creates a database, index, view, table, or procedure.<br><br>**Note**: Make sure you have admin privilege before creating any database. Once a database is created, you can check it in the list of databases with the following SQL command: `SHOW DATABASES`; | CREATE DATABASE databasename; | CREATE DATABASE testDB;
+CREATE TABLE | Creates a new table in the database. | **Create a Single Table**<br>CREATE TABLE table_name (<br>__column1 datatype,<br>__column2 datatype, ....<br>);<br><br>**Create a Table From Another Table**<br>CREATE TABLE new_table_name AS<br>__SELECT column1, column2,...<br>__FROM existing_table_name<br>__WHERE ....; | **Create a Single Table**<br>CREATE TABLE Persons (<br>__PersonID int,<br>__LastName varchar(255),<br>__FirstName varchar(255),<br>);<br><br>**Create a Table From Another Table**<br>CREATE TABLE TestTable AS<br>SELECT customername,<br>contactname<br>FROM customers;
+DROP | Deletes a column, constraint, database, index, table, or view.<br><br>**Note**: Be careful before dropping a database. Deleting a database will result in loss of complete information stored in the database! | DROP DATABASE databasename; | DROP DATABASE testDB;
 
 ## Data Manipulation Language (DML) Commands
 Command | Description | Example(s) | Illustration(s)
@@ -88,8 +94,8 @@ UPDATE | Updates existing rows in a table<br><br>**Note**: Be careful when updat
 ## Data Query Language (DQL) Commands
 Command | Description | Example(s) | Illustration(s)
 ------------ | ------------- | ------------- | -------------
-SELECT | Select data from a database | SELECT * FROM table_name;<br><br>SELECT column1, column2, ...<br>FROM table_name;
-SELECT DISTINCT | Selects only distinct (different) values | SELECT DISTINCT column1, column2, ...<br>FROM table_name;<br><br>SELECT COUNT(DISTINCT column)<br>FROM table_name;
+SELECT | Select data from a database | **Select all columns**<br>SELECT * FROM table_name;<br><br>**Select some columns**<br>SELECT column1, column2, ...<br>FROM table_name; | **Select all columns**<br>SELECT * FROM Customers;<br><br>**Select some columns**<br>SELECT CustomerName, City FROM Customers;
+SELECT DISTINCT | Selects only distinct (different) values | SELECT DISTINCT column1, column2, ...<br>FROM table_name;<br><br>SELECT COUNT(DISTINCT column)<br>FROM table_name; | SELECT DISTINCT Country FROM Customers;<br><br>SELECT COUNT(DISTINCT Country) FROM Customers;
 SELECT INTO | Copy all columns into a new table | **Copies data from one table into a new table**<br>SELECT * <br>INTO newtable [IN externaldb]<br>FROM oldtable<br>WHERE condition;<br><br>**Copy only some columns into a new table**<br>SELECT column1, column2, ...<br>INTO newtable [IN externaldb]<br>FROM oldtable<br>WHERE condition; | **Copy all columns into a new table**<br>SELECT * INTO CustomersBackup2017<br>FROM Customers;<br><br>SELECT * INTO CustomersBackup2017<br>FROM Customers<br>WHERE Country = 'Germany';<br><br>**Copy only some columns into a new table**<br>SELECT CustomerName, ContactName INTO CustomersBackup2017<br>FROM Customers;<br><br>SELECT Customers.CustomerName, Orders.OrderID<br>INTO CustomersOrderBackup2017<br>FROM Customers<br>LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
 
 
@@ -117,7 +123,7 @@ RIGHT (OUTER) JOIN | Returns all records from the right table, and the matched r
 ROWNUM | Specifies the number of records to return in the result set<br><br>**Note**: Oracle supports the ROWNUM clause | SELECT column_name(s)<br>FROM table_name<br>WHERE ROWNUM <= number; | SELECT * FROM Customers<br>WHERE Country='Germany' AND ROWNUM <= 3;
 SELF JOIN | THis is a regular join, but the table is joined with itself. | SELECT column_name(s)<br>FROM table1 T1, table1 T2<br>WHERE condition; | FROM Customers A, Customers B<br>WHERE A.CustomerID <> B.CustomerID<br>AND A.City = B.City<br>ORDER BY A.City;
 TOP | Specifies the number of records to return in the result set<br><br>**Note**: MS Access supports the ROWNUM clause | SELECT TOP number`I`percent column_name(s)<br>FROM table_name<br>WHERE condition; | SELECT TOP 3 * FROM Customers<br>WHERE Country='Germany';
-WHERE | Filters a result set to include only records that fulfill a specified condition | SELECT column1, column2, ...<br>FROM table_name<br>WHERE condition="Promise"
+WHERE | Filters a result set to include only records that fulfill a specified condition.<br><br>**Note**: SQL requires single quotes around text values (most database systems will also allow double quotes). However, numeric fields should not be enclosed in quotes. | SELECT column1, column2, ...<br>FROM table_name<br>WHERE condition; | SELECT * FROM Customers<br>WHERE Country='Mexico';<br><br>SELECT * FROM Customers<br>WHERE CustomerID=1;<br><br>SELECT * FROM Customers<br>WHERE Date='2014-04-23';
 
 ## Functions
 Command | Description | Example(s) | Illustration(s)
@@ -148,13 +154,22 @@ OR | Includes rows where either condition is true | SELECT column1, column2, ...
 UNION | Combines the result set of two or more SELECT statements. <br><br>**Note**: Only distinct values | SELECT column_name(s) <br>FROM table1<br>UNION<br>SELECT column_name(s) FROM table2; | SELECT City FROM Customers<br>UNION<br>SELECT City FROM Suppliers<br>ORDER BY City;<br><br>SELECT City, Country FROM Customers<br>WHERE Country='Germany'<br>UNION<br>SELECT City, Country FROM Suppliers<br>WHERE Country='Germany'<br>ORDER BY City;<br><br>SELECT 'Customer' As Type, ContactName, City, Country<br>FROM Customers<br>UNION<br>SELECT 'Supplier', ContactName, City, Country<br>FROM Suppliers;<br><br>SELECT 'Customer' As Type, ContactName, City, Country<br>FROM Customers<br>UNION<br>SELECT 'Supplier', ContactName, City, Country<br>FROM Suppliers;
 UNION ALL | Combines the result set of two or more SELECT statements. <br><br>**Note**: Allows duplicate values | SELECT column_name(s) <br>FROM table1<br>UNION ALL<br>SELECT column_name(s) FROM table2; | SELECT City FROM Customers<br>UNION ALL<br>SELECT City FROM Suppliers<br>ORDER BY City;<br><br>SELECT City, Country FROM Customers<br>WHERE Country='Germany'<br>UNION ALL<br>SELECT City, Country FROM Suppliers<br>WHERE Country='Germany'<br>ORDER BY City;
 
+## Other Operators
+Operator | Description | Example(s) | Illustration(s)
+------------ | ------------- | ------------- | -------------
+`=` | Equal
+`>` | Greater than
+`<` | Less than
+`>=` | Greater than or equal
+`<=` | Less than or equal
+`<>` OR `!=` | Not equal
+
 ## Sorting
 Command | Description | Example(s) | Illustration(s)
 ------------ | ------------- | ------------- | -------------
 GROUP | Groups the result set (used with aggregate functions: COUNT, MAX, MIN, SUM, AVG) | SELECT column_name(s)<br>FROM table_name<br>WHERE condition<br>GROUP BY column_name(s)<br>ORDER BY column_name(s); | SELECT COUNT(CustomerID), Country<br>FROM Customers<br>GROUP BY Country;<br><br>SELECT COUNT(CustomerID), Country<br>FROM Customers<br>GROUP BY Country<br>ORDER BY COUNT(CustomerID) DESC;<br><br>SELECT Shippers.ShipperName, COUNT(Orders.OrderID) AS NumberOfOrders FROM Orders<br>LEFT JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID<br>GROUP BY ShipperName;
-ORDER | Sorts the result set in ascending or descending order | SELECT column1, column2, ...<br>FROM table_name<br>ORDER BY column1, column2, ...<br>ASC`I`DESC; | SELECT * FROM Customers<br>ORDER BY Country;<br><br>SELECT * FROM Customers<br>ORDER BY Country DESC;<br><br>SELECT * FROM Customers<br>ORDER BY Country, CustomerName;<br><br>SELECT * FROM Customers<br>ORDER BY Country ASC, CustomerName DESC;
+ORDER | Sorts the result set in ascending or descending order | SELECT column1, column2, ...<br>FROM table_name<br>ORDER BY column1, column2, ...<br>ASC`I`DESC; | **Order by Single Column**<br>SELECT * FROM Customers<br>ORDER BY Country;<br><br>**Order by Single Column**<br>SELECT * FROM Customers<br>ORDER BY Country DESC;<br><br>**Order by Several Columns**<br>SELECT * FROM Customers<br>ORDER BY Country, CustomerName;<br><br>**Order by Several Columns**<br>SELECT * FROM Customers<br>ORDER BY Country ASC, CustomerName DESC;
 
 ## Resources
 1. [W3 Schools SQL Tutorial](https://www.w3schools.com/sql/default.asp)
-
- 
+2. [SQL Cheat Sheet](https://hackr.io/blog/sql-cheat-sheet)
