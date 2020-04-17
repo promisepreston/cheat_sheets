@@ -5,6 +5,7 @@ You're going to love CheatSheets!
 
 ## List of CheatSheets
 * Git Cheat Sheet
+* SQL Cheat Sheet
 * More to come
 
 ## Getting Started
