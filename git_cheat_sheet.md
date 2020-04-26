@@ -115,7 +115,7 @@ Command | Description | Example(s)
 git reset | Reset staging area to match most recent commit, but leave the working directory unchanged | git reset
 git reset --hard | Reset staging area and working directory to match most recent commit and overwrite all changes in the working directory | git reset --hard
 git reset `commit` | Reset staging area to the specified commit, but leave the working directory unchanged | git reset `4a0b8b5`
-git reset --hard `commit` | Reset staging area and working directory to the specified commitand overwrite all changes in the working directory | git reset --hard `4a0b8b5`
+git reset --hard `commit` | Reset staging area and working directory to the specified commit and overwrite all changes in the working directory | git reset --hard `4a0b8b5`
 
 ## Stash Commands
 Command | Description | Example(s)
