@@ -1,72 +1,84 @@
 # SQL Cheat Sheet
 
 ## Glossary
-**SQL**: SQL is a standard language for accessing and manipulating databases. It stands for Structured Query Language.
-**RDBMS**: RDBMS stands for Relational Database Management System. It is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.
-**Table**: A table is a collection of related data entries and it consists of columns and rows. The data in RDBMS is stored in database objects called tables.
-**Semicolon**: A semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.
-**SQL Stored Procedures for SQL Server**: A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again. So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it. You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+### SQL
+SQL is a standard language for accessing and manipulating databases. It stands for Structured Query Language.
 
-    **Stored Procedure Syntax**
-    CREATE PROCEDURE procedure_name
-    AS
-    sql_statement
-    GO;
+### RDBMS
+RDBMS stands for Relational Database Management System. It is the basis for SQL, and for all modern database systems such as MS SQL Server, IBM DB2, Oracle, MySQL, and Microsoft Access.
 
-    **Execute a Stored Procedure**
-    EXEC procedure_name;
+### Table
+A table is a collection of related data entries and it consists of columns and rows. The data in RDBMS is stored in database objects called tables.
 
+### Semicolon
+A semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.
 
-    **Stored Procedure Example**
-    The following SQL statement creates a stored procedure named "SelectAllCustomers" that selects all records from the "Customers" table:
+### SQL Comments
+Comments are used to explain sections of SQL statements, or to prevent execution of SQL statements.
 
-    CREATE PROCEDURE SelectAllCustomers
-    AS
-    SELECT * FROM Customers
-    GO;
+**Single Line Comments(--)**
 
-    **Execute the Stored Procedure**
-    EXEC SelectAllCustomers;
-
-
-    **Stored Procedure With One Parameter**
-    The following SQL statement creates a stored procedure that selects Customers from a particular City from the "Customers" table:
-
-    CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)
-    AS
-    SELECT * FROM Customers WHERE City = @City
-    GO;
-
-    **Execute the Stored Procedure**
-    EXEC SelectAllCustomers @City = 'London';
-
-
-    **Stored Procedure With Multiple Parameters**
-    The following SQL statement creates a stored procedure that selects Customers from a particular City with a particular PostalCode from the "Customers" table:
-
-    CREATE PROCEDURE SelectAllCustomers @City nvarchar(30), @PostalCode nvarchar(10)
-    AS
-    SELECT * FROM Customers WHERE City = @City AND PostalCode = @PostalCode
-    GO;
-
-    **Execute the Stored Procedure**
-    EXEC SelectAllCustomers @City = 'London', @PostalCode = 'WA1 1DP';
-
-**SQL Comments**: Comments are used to explain sections of SQL statements, or to prevent execution of SQL statements.
-
-    **Single Line Comments(--)**
     --Select all:
     SELECT * FROM Customers;
 
     SELECT * FROM Customers -- WHERE City='Berlin';
 
 
-    **Multi-line Comments (start with /* and end with */)**
+**Multi-line Comments (start with /`*` and end with `*`/)**
+
     /*SELECT * FROM Customers;
     SELECT * FROM Products;
     SELECT * FROM Orders;
     SELECT * FROM Categories;*/
-    SELECT * FROM Suppliers;    
+    SELECT * FROM Suppliers;
+
+### SQL Stored Procedures for SQL Server
+A stored procedure is a prepared SQL code that you can save, so the code can be reused over and over again. So if you have an SQL query that you write over and over again, save it as a stored procedure, and then just call it to execute it. You can also pass parameters to a stored procedure, so that the stored procedure can act based on the parameter value(s) that is passed.
+
+**Stored Procedure Syntax**
+
+    CREATE PROCEDURE procedure_name
+    AS
+    sql_statement
+    GO;
+
+**Execute a Stored Procedure**
+
+    EXEC procedure_name;
+
+**Stored Procedure Example**
+The following SQL statement creates a stored procedure named "SelectAllCustomers" that selects all records from the "Customers" table:
+
+    CREATE PROCEDURE SelectAllCustomers
+    AS
+    SELECT * FROM Customers
+    GO;
+
+**Execute the Stored Procedure**
+    EXEC SelectAllCustomers;
+
+**Stored Procedure With One Parameter**
+The following SQL statement creates a stored procedure that selects Customers from a particular City from the "Customers" table:
+
+    CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)
+    AS
+    SELECT * FROM Customers WHERE City = @City
+    GO;
+
+**Execute the Stored Procedure**
+
+    EXEC SelectAllCustomers @City = 'London';
+
+**Stored Procedure With Multiple Parameters**
+The following SQL statement creates a stored procedure that selects Customers from a particular City with a particular PostalCode from the "Customers" table:
+
+    CREATE PROCEDURE SelectAllCustomers @City nvarchar(30), @PostalCode nvarchar(10)
+    AS
+    SELECT * FROM Customers WHERE City = @City AND PostalCode = @PostalCode
+    GO;
+
+**Execute the Stored Procedure**
+    EXEC SelectAllCustomers @City = 'London', @PostalCode = 'WA1 1DP';   
 
 ## Data Control Language (DCL) Commands
 Command | Description | Example(s) | Illustration(s)
