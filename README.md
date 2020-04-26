@@ -16,6 +16,12 @@ You can clone the cheat sheet(s) to your local machine or fork the cheat sheet(s
 ## Contributing
 CheatSheets is still an evolving project with a lot of work still required to make it outstanding. Contributions are welcome to CheatSheets in the form of error-correction, cheat sheet addition or any other form of contribution to make CheatSheets industry standard.
 
+If you'd like to contribute code to CheatSheets, fork the repository and open a Pull Request!
+
+We are very responsive to contributors, and review every patch we receive fairly quickly. Most contributors who successfully get a patch or two applied are given write access to the repositories and invited to join CheatSheets' development team. Since we view every user as potential contributor, this approach works well for us.
+
+So if you want to help out with CheatSheets, we'll be glad to accept your efforts!
+
 ## Support
 If you found this project amazing, helpful or interesting, please take little time to **star** it.
 
