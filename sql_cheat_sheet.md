@@ -47,6 +47,7 @@ A stored procedure is a prepared SQL code that you can save, so the code can be 
     EXEC procedure_name;
 
 **Stored Procedure Example**
+
 The following SQL statement creates a stored procedure named "SelectAllCustomers" that selects all records from the "Customers" table:
 
     CREATE PROCEDURE SelectAllCustomers
@@ -55,9 +56,11 @@ The following SQL statement creates a stored procedure named "SelectAllCustomers
     GO;
 
 **Execute the Stored Procedure**
+
     EXEC SelectAllCustomers;
 
 **Stored Procedure With One Parameter**
+
 The following SQL statement creates a stored procedure that selects Customers from a particular City from the "Customers" table:
 
     CREATE PROCEDURE SelectAllCustomers @City nvarchar(30)
@@ -70,6 +73,7 @@ The following SQL statement creates a stored procedure that selects Customers fr
     EXEC SelectAllCustomers @City = 'London';
 
 **Stored Procedure With Multiple Parameters**
+
 The following SQL statement creates a stored procedure that selects Customers from a particular City with a particular PostalCode from the "Customers" table:
 
     CREATE PROCEDURE SelectAllCustomers @City nvarchar(30), @PostalCode nvarchar(10)
@@ -78,6 +82,7 @@ The following SQL statement creates a stored procedure that selects Customers fr
     GO;
 
 **Execute the Stored Procedure**
+
     EXEC SelectAllCustomers @City = 'London', @PostalCode = 'WA1 1DP';   
 
 ## Data Control Language (DCL) Commands
@@ -185,3 +190,6 @@ ORDER | Sorts the result set in ascending or descending order | SELECT column1, 
 ## Resources
 1. [W3 Schools SQL Tutorial](https://www.w3schools.com/sql/default.asp)
 2. [SQL Cheat Sheet](https://hackr.io/blog/sql-cheat-sheet)
+
+
+ 
