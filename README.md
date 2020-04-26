@@ -20,8 +20,8 @@ If you'd like to contribute code to CheatSheets, fork the repository and open a 
 
 Here's some links to resources on how to fork a repository and open a Pull Request: 
 
-* Fork a repo - https://help.github.com/en/github/getting-started-with-github/fork-a-repo   
-* Creating a pull request from a fork - https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
+- Fork a repo - https://help.github.com/en/github/getting-started-with-github/fork-a-repo   
+- Creating a pull request from a fork - https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork
 
 
 
