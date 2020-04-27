@@ -16,7 +16,16 @@ You can clone the cheat sheet(s) to your local machine or fork the cheat sheet(s
 ## Contributing
 CheatSheets is still an evolving project with a lot of work still required to make it outstanding. Contributions are welcome to CheatSheets in the form of error-correction, cheat sheet addition or any other form of contribution to make CheatSheets industry standard.
 
-If you'd like to contribute code to CheatSheets, fork the repository and open a Pull Request (PR)!
+If you'd like to contribute code to CheatSheets, please do the following:
+
+
+1. Fork the repository
+2. Create a new topic branch off the master branch
+3. Commit and push the branch
+4. Make a pull request describing what you have done
+5. Now it will hopefully get merged
+
+**Note**: For now there is no styling guide for CheatSheets, but you can look through the various cheat sheets to have a feel of the styles that were adopted in creating the cheat sheets.
 
 Here's some links to resources on how to fork a repository and open a Pull Request: 
 
