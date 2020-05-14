@@ -17,6 +17,7 @@ Git is the open source distributed version control system that facilitates remot
 Command | Description | Example(s)
 ------------ | ------------- | -------------
 git add `file` | Snapshot the file in preparation for versioning | git add `index.rb`
+git add -p | Select changes to add | git add -p
 git blame `file` | Show who changed what & when in a file | git blame `file`
 git clone `url` | Clone an entire repository from a remote location onto a local machine | git clone `https://github.com/promisepreston/example.git`
 git commit -m `message` | Commit staged snapshots permanently in version history | git commit -m `initial commit`
@@ -33,6 +34,7 @@ git branch | List all local branches | git branch
 git branch -a | List all local branches and remote branches as well  | git branch -a
 git branch `branch` | List all local branches | git branch `develop`
 git branch -d `branch` | Delete a local branch | git branch -d `develop`
+git branch -D 'branch' | Force delete a local branch | git branch -D `develop`
 git branch -m `new name` | Rename current branch | git branch -m    `stable`
 git checkout `branch` | Switch to an existing branch | git checkout `develop`
 git checkout -b `branch` | Create a local branch and switch to it | git checkout -b `develop`
@@ -94,6 +96,7 @@ git push `alias` `branch` | Upload all current local branch commits to remote br
 git push `alias` --all | Upload all local branches to remote repository | git push `origin` --all
 git push `alias` `branch` --force | Upload all current local branch commits forefully to remote branch even if it results in a non-fast-forward merge | git push `origin` `master` --force
 git push `alias` --tags | Upload all local tags to remote repository. Tags aren’t automatically pushed when you push a `branch` or use the `--all` flag | git push `origin` -tags
+git push -u origin `branch` | Push and set upstream branch to track changes | git push origin -u `branch_name`
 
 ## Rebase Commands
 Command | Description | Example(s)
@@ -133,6 +136,11 @@ git tag | List all tags | git tag
 git tag -d `tag` | Delete a tag from a local repository | git tag -d `develop`
 git pull `alias` --tags | Download all remote tags to the current local branch | git pull `origin` -tags
 git push `alias` --tags| Upload all local tags to remote repository. Tags aren’t automatically pushed when you push a `branch` or use the `--all` flag | git push `origin` -tags
+
+## Alias Commands
+Command | Description | Example(s)
+-------------|---------------|-------------
+git config --global.alias.shortcut | Set shortcut for git command| git config --global.alias.co checkout
 
 ## Resources
 1. [GitHub Git Cheat Sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
